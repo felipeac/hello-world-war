@@ -12,7 +12,7 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                echo  'deploy'
+                sh 'curl --upload-file target/hello-world.war "http://tomcat-admin:tomcat-admin@localhost:8888/manager/text/deploy?path=/hello-world&update=true'
             }
         }
     }
