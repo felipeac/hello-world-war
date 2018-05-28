@@ -12,7 +12,6 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                echo $WORKSPACE
                 sh 'curl --upload-file target/hello-world-war-1.0.0.war "http://tomcat-admin:tomcat-admin@localhost:8888/manager/text/deploy?path=/hello-world&update=true"'
             }
         }
