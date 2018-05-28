@@ -12,8 +12,7 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                sh 'ping 172.17.0.3'
-                //sh 'curl --upload-file target/hello-world-war-1.0.0.war "http://tomcat-admin:tomcat-admin@localhost:8888/manager/text/deploy?path=/hello-world&update=true"'
+                sh 'curl --upload-file target/*.war "http://tomcat-admin:tomcat-admin@172.17.0.3:8080/manager/text/deploy?path=/hello-world&update=true"'
             }
         }
     }
